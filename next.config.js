@@ -1,6 +1,11 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+const path = require("path");
+const resolve = (dir) => path.resolve(__dirname, dir);
 
-module.exports = nextConfig
+module.exports = {
+  webpack: {
+    alias: {
+      styles: resolve("styles"),
+      utils: resolve("utils"),
+    },
+  },
+};
