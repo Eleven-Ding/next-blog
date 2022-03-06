@@ -5,11 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 9100",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "axios": "^0.26.0",
     "babel-plugin-styled-components": "^2.0.6",
     "next": "12.1.0",
     "react": "17.0.2",
@@ -21,10 +20,8 @@
   },
   "devDependencies": {
     "@ant-design/icons": "^4.7.0",
-    "@typescript-eslint/eslint-plugin": "^5.13.0",
-    "@typescript-eslint/parser": "^5.13.0",
     "antd": "^4.18.9",
-    "babel-plugin-module-resolver": "^4.1.0",
-    "eslint": "^8.10.0"
+    "eslint": "8.10.0",
+    "eslint-config-next": "12.1.0"
   }
 }

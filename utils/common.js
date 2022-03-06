@@ -1,6 +1,6 @@
-import * as React from 'react'
+import * as React from "react";
+
 import { useSelector, shallowEqual } from "react-redux";
-import { titleList } from "@/constant";
 export function getCurrentFormatTime() {
   let startTime = new Date("2020-10-22"); // 开始时间
   let endTime = new Date(); // 结束时间
@@ -13,32 +13,30 @@ export function getCurrentFormatTime() {
   let level3 = leavel2 - minutes * 60 * 1000;
   let seconds = Math.floor(level3 / 1000);
 
-  return days + "天" + hours + "时" + minutes + "分" + seconds + "秒"
+  return days + "天" + hours + "时" + minutes + "分" + seconds + "秒";
 }
-
 
 export function SelfSelector(obj) {
   return useSelector((state) => {
     const keys = Object.keys(obj);
-    const result = Object.create(null)
-    keys.forEach(key => {
+    const result = Object.create(null);
+    keys.forEach((key) => {
       const value = obj[key];
       if (Array.isArray(value)) {
-        value.forEach(item => {
-          result[item] = state.getIn([key, item])
-        })
+        value.forEach((item) => {
+          result[item] = state.getIn([key, item]);
+        });
       } else {
-        result[value] = state.getIn([key, obj[key]])
+        result[value] = state.getIn([key, obj[key]]);
       }
-    })
-    return result
-  }, shallowEqual)
+    });
+    return result;
+  }, shallowEqual);
 }
 
 export function debounce(fn, delay) {
   var timer; // 维护一个 timer
   return function () {
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
     var _this = this; // 取debounce执行作用域的this
     var args = arguments;
     if (timer) {
@@ -50,19 +48,13 @@ export function debounce(fn, delay) {
   };
 }
 
-
-export function handleRouterChange(route) {
-  document.title = titleList[route.split('/')[1]]
-}
-
-
 export function getMaxCount(width) {
   if (width >= 725) {
-    return 4
+    return 4;
   } else if (width < 725 && width >= 600) {
-    return 3
+    return 3;
   }
-  return 2
+  return 2;
 }
 
 export function getNodeInfo(nodeList) {
@@ -88,7 +80,6 @@ export function getNodeInfo(nodeList) {
   }
   for (let i = 1; i < AnchorArray.length; i++) {
     if (item.level < AnchorArray[i].level) {
-
       item.children.push(AnchorArray[i]);
     } else {
       item = AnchorArray[i];
@@ -96,4 +87,19 @@ export function getNodeInfo(nodeList) {
     }
   }
   return finalArray;
+}
+
+export function throttle(fn, delay) {
+  var timer;
+  return function () {
+    var _this = this;
+    var args = arguments;
+    if (timer) {
+      return;
+    }
+    timer = setTimeout(function () {
+      fn.apply(_this, args);
+      timer = null; // 在delay后执行完fn之后清空timer，此时timer为假，throttle触发可以进入计时器
+    }, delay);
+  };
 }

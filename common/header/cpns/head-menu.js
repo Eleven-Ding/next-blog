@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { Menu } from "antd";
 import React, { memo } from "react";
 import {
@@ -40,13 +41,12 @@ export default memo(function HeaderMenu({
             {iconList[tab.index]}
             <span>
               {tab.text}
+              {index}
             </span>
           </Menu.Item>
         );
       })}
-      <Menu.Item key={10} onClick={() => {
-        console.log(233);
-      }}>
+      <Menu.Item key={10} onClick={() => {}}>
         <QqOutlined />
         <span>{username ? "退出登录" : "QQ邮箱登录"}</span>
       </Menu.Item>
