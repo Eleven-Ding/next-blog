@@ -79,7 +79,9 @@ export default memo(function Header(props) {
   return (
     <HeaderWrapper className='flex-wrap'>
       <div className='header-box'>
-        <div className='left-menu' onClick={() => { }}>
+        <div className='left-menu' onClick={() => {
+          console.log(2333);
+        }}>
           <MenuFoldOutlined />
         </div>
         <div className='blog-info'>
@@ -120,8 +122,8 @@ export default memo(function Header(props) {
                   tabList={tabList}
                   renderIndex={renderIndex}
                   username={'丁时一'}
-                  loginOut={() => { }}
-                  showLogin={() => { }}
+                  loginOut={() => { console.log(2333); }}
+                  showLogin={() => { console.log(2333); }}
                   history={props.history}
                 />
               }

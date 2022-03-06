@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from "react";
 import { getCurrentFormatTime } from "@/utils/common";
 import { FooterWrapper } from "./style";
-import { changeTimeAction } from "@/pages/about/store/actionCreators";
+// import { changeTimeAction } from "@/pages/about/store/actionCreators";
 import { useDispatch } from "react-redux";
 export default memo(function Footer() {
   const [runTime, setRunTime] = useState("00天:00时:00分:00秒");
@@ -9,7 +9,7 @@ export default memo(function Footer() {
   useEffect(() => {
     const timer = setInterval(() => {
       setRunTime(getCurrentFormatTime());
-      dispatch(changeTimeAction(new Date(Date.now()).toLocaleString()))
+      // dispatch(changeTimeAction(new Date(Date.now()).toLocaleString()))
     }, 1000);
     return _ => {
       clearInterval(timer)

@@ -1,11 +1,8 @@
-const path = require("path");
-const resolve = (dir) => path.resolve(__dirname, dir);
+const path = require('path');
 
 module.exports = {
-  webpack: {
-    alias: {
-      styles: resolve("styles"),
-      utils: resolve("utils"),
-    },
-  },
+  webpack: config => {
+    config.resolve.alias['@'] = path.resolve(__dirname);
+    return config;
+  }
 };
