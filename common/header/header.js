@@ -13,7 +13,7 @@ import { CaretDownOutlined, MenuFoldOutlined } from '@ant-design/icons'
 // import { useDispatch } from "react-redux";
 // import { useEffect } from "react";
 // import { SelfSelector } from "@/utils/common";
-import { getHeaderRenderIndexByWidth, tabList } from 'utils/constant'
+import { getHeaderRenderIndexByWidth, tabList } from '@/constant'
 import HeaderMenu from './cpns/head-menu'
 import { iconList } from './cpns/head-menu'
 import { debounce } from '@/utils/common'
